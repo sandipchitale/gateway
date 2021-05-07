@@ -1,0 +1,56 @@
+Filter Name: dumpFilters FilterClass: com.example.gateway.GatewayApplication$DumpFilters
+Filter Name: characterEncodingFilter FilterClass: org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter
+Filter Name: webMvcMetricsFilter FilterClass: org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter
+Filter Name: formContentFilter FilterClass: org.springframework.boot.web.servlet.filter.OrderedFormContentFilter
+Filter Name: requestContextFilter FilterClass: org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter
+Filter Name: springSecurityFilterChain FilterClass: org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean$1
+        Or [Ant [pattern='/login'], Ant [pattern='/logout'], Ant [pattern='/oauth/authorize'], Ant [pattern='/oauth/confirm_access']]
+                org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@464400b3
+                org.springframework.security.web.context.SecurityContextPersistenceFilter@3739f3c9
+                org.springframework.security.web.header.HeaderWriterFilter@708dfe10
+                org.springframework.security.web.csrf.CsrfFilter@3b5da0b0
+                org.springframework.security.web.authentication.logout.LogoutFilter@47c96f2c
+                org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@210a26b
+                org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40fe8fd5
+                org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5aa6da2
+                org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58182b96
+                org.springframework.security.web.session.SessionManagementFilter@2a120c88
+                org.springframework.security.web.access.ExceptionTranslationFilter@559fd5ec
+                org.springframework.security.web.access.intercept.FilterSecurityInterceptor@455cbf18
+        Or [Ant [pattern='/webapp-login'], Ant [pattern='/webapp-refresh-token']]
+                org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10bdfbcc
+                org.springframework.security.web.context.SecurityContextPersistenceFilter@74cd798f
+                org.springframework.security.web.header.HeaderWriterFilter@3ce7394f
+                org.springframework.security.web.authentication.logout.LogoutFilter@601f264d
+                com.example.gateway.clients.WebappLoginFilterConfig$WebappLoginFilter@25b74370
+                org.springframework.security.web.savedrequest.RequestCacheAwareFilter@314f59b
+                org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63c99f7
+                org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15e8c040
+                org.springframework.security.web.session.SessionManagementFilter@6723cce7
+                org.springframework.security.web.access.ExceptionTranslationFilter@2e8b24a1
+                org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49986178
+        Or [Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]
+                org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12f51a65
+                org.springframework.security.web.context.SecurityContextPersistenceFilter@6e948f1c
+                org.springframework.security.web.header.HeaderWriterFilter@1640f20f
+                org.springframework.security.web.authentication.logout.LogoutFilter@995ad50
+                org.springframework.security.web.authentication.www.BasicAuthenticationFilter@182cc69e
+                org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24405466
+                org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35010a6b
+                org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7657d90b
+                org.springframework.security.web.session.SessionManagementFilter@134d7ffa
+                org.springframework.security.web.access.ExceptionTranslationFilter@20dd5870
+                org.springframework.security.web.access.intercept.FilterSecurityInterceptor@698f4aa
+        org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration$NotOAuthRequestMatcher@30af23fd
+                org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65fc8edc
+                org.springframework.security.web.context.SecurityContextPersistenceFilter@48ae9e8b
+                org.springframework.security.web.header.HeaderWriterFilter@4b343b6d
+                org.springframework.security.web.authentication.logout.LogoutFilter@3a2bb026
+                org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@47fa3671
+                org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6eaa6b0c
+                org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4afcae7
+                org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a357c3e
+                org.springframework.security.web.session.SessionManagementFilter@17d2b646
+                org.springframework.security.web.access.ExceptionTranslationFilter@27502e5c
+                org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ea07516
+Filter Name: Tomcat WebSocket (JSR356) Filter FilterClass: org.apache.tomcat.websocket.server.WsFilter

@@ -1,0 +1,6 @@
+inmemory:
+  groups:
+  - USER
+  - ADMNISTRATOR
+  - DEVELOPER
+  - SUPPORT

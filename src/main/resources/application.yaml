@@ -1,0 +1,24 @@
+spring:
+    application:
+        name: Gateway
+    profiles:
+        active:
+            - inmemory
+            - ldap
+    cloud:
+        compatibility-verifier:
+            compatible-boot-versions:
+            - '2.4.x'
+    security:
+        filter:
+            dispatcher-types: forward,request
+# logging:
+#   level:
+#     root: DEBUG
+#     org.springframework.security.web.FilterChainProxy: TRACE
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

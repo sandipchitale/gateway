@@ -1,0 +1,50 @@
+dn: dc=springframework,dc=org
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: springframework
+
+dn: ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=ldapuser,ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: LDAP USER
+sn: USER
+uid: ldapuser
+userPassword: {bcrypt}$2a$10$pylbuObs2CMuAV/2yMubwOxZWvCaj3cfEO4YK2hsvzRK8ONby97fq
+
+dn: uid=ldapadmin,ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: LDAP ADMIN
+sn: ADMIN
+uid: ldapadmin
+userPassword: {bcrypt}$2a$10$SOCdkMRw7ozzQwbphl/qguEt8RRRJVBIVVzneT6r53IOlBPZcKtu2
+
+dn: cn=USER,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: USER
+ou: USER
+uniqueMember: uid=ldapuser,ou=people,dc=springframework,dc=org
+uniqueMember: uid=ldapadmin,ou=people,dc=springframework,dc=org
+
+dn: cn=ADMINISTRATOR,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: ADMINISTRATOR
+ou: ADMINISTRATOR
+uniqueMember: uid=ldapadmin,ou=people,dc=springframework,dc=org

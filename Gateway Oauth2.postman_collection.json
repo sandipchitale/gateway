@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "51be2107-1bc8-4bfb-b0db-56d12175167a",
+		"name": "Gateway Oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Password Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"description": "OAuth2 Password Grant",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ldapadmin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ldapadminpassword",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client2 Credentials Grant",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret2",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"description": "OAuth2 Grant Type",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Access Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/oauth/token?grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJsZGFwdXNlciIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiJldHJKLXFQcmdSdUQ2UHpMVFNaVkVfR0huaU0iLCJleHAiOjE2MjAxOTA1MzMsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJMWmFsMEdjS2djZlZtZjEzMXN4ZEptQmUzMkUiLCJjbGllbnRfaWQiOiJjbGllbnQifQ.eEzEVXxY20c9lW-Eg8RvmL-EpT2GyVofrRAOydDs_YY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token"
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJsZGFwdXNlciIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiJldHJKLXFQcmdSdUQ2UHpMVFNaVkVfR0huaU0iLCJleHAiOjE2MjAxOTA1MzMsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJMWmFsMEdjS2djZlZtZjEzMXN4ZEptQmUzMkUiLCJjbGllbnRfaWQiOiJjbGllbnQifQ.eEzEVXxY20c9lW-Eg8RvmL-EpT2GyVofrRAOydDs_YY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webapp Refresh Access Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiJwdk1GYWoyNmM4T1ZQUW8tdkRobXpYMTU4UnciLCJleHAiOjE2MTk5MTg5NDgsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJqdGkiOiJLc1NBY2JfYWNDdHBIVXg2ZkRzSGdWSzJvemsiLCJjbGllbnRfaWQiOiJjbGllbnQifQ.9AMTUo9NpUwilJ3n37qsuwArxd0oRO8Y4VqqDDSRpro",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "client",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/webapp-refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"webapp-refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webapp Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "client",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/webapp-login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"webapp-login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Token esponse has access_token and optionally refresh_token\", function () {",
+							"    const mayBeTokens = pm.response.json();",
+							"    if (mayBeTokens && mayBeTokens.access_token) {",
+							"        console.log('-- Access T ------------------------------------------');",
+							"        console.log(mayBeTokens.access_token);",
+							"        const parts = mayBeTokens.access_token.split('.');",
+							"        if (parts.length === 3) { // Likely JWT",
+							"            console.log('Header: ');",
+							"            console.log(JSON.parse(atob(parts[0])));",
+							"            console.log('Payload:');",
+							"            console.log(JSON.parse(atob(parts[1])));",
+							"            console.log('------------------------------------------------------');",
+							"        }",
+							"    }",
+							"    if (mayBeTokens && mayBeTokens.refresh_token) {",
+							"        console.log('-- Refresh T -----------------------------------------');",
+							"        console.log(mayBeTokens.refresh_token);",
+							"        const parts = mayBeTokens.refresh_token.split('.');",
+							"        if (parts.length === 3) { // Likely JWT",
+							"            console.log('Header: ');",
+							"            console.log(JSON.parse(atob(parts[0])));",
+							"            console.log('Payload:');",
+							"            console.log(JSON.parse(atob(parts[1])));",
+							"            console.log('------------------------------------------------------');",
+							"        }",
+							"    }",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Access",
+			"item": [
+				{
+					"name": "GoodbyeWorld",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAxODg3NzEsInVzZXJfbmFtZSI6ImxkYXB1c2VyIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IlpvakU0NlJPWjJHRy1xYzYzaVRQY3VvREJKRSIsImNsaWVudF9pZCI6ImNsaWVudCIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdfQ.tKtL7gTi48VJXkZOmBTGx6WMZNndF0-WIxcTDR7aanY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/goodbyeworld",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"goodbyeworld"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HelloWorld",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAxODg2MzMsInVzZXJfbmFtZSI6ImxkYXB1c2VyIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImlGVXFZYWI1b0Nyd0w5OG83MG1YRmFYQXRWOCIsImNsaWVudF9pZCI6ImNsaWVudCIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdfQ.xkVsBsTKNqP2I6lQJYfSir9_inElrYD6lScX3zArqzc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/helloworld",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"helloworld"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAyNjk0NzIsInVzZXJfbmFtZSI6ImxkYXBhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJqdGkiOiJ5ai1rMW5UcnlrdDZuOVBPTkFtV1A3aXpOLWciLCJjbGllbnRfaWQiOiJjbGllbnQiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.f3DxLzSFm26EFEqdWMbxVszwM2aScYWJOSFSyR0Kc1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
